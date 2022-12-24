@@ -11,6 +11,6 @@
     "xlsx": "^0.18.5"
   },
   "scripts": {
-    "dev": "nodemon NODE_ENV=dev ./src/bot.js"
+    "dev": "cross-env NODE_ENV=dev node ./src/bot.js"
   }
 }

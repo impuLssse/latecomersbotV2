@@ -5,7 +5,7 @@
   "main": "backend.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev nodemon backend.js",
-    "prod": "cross-env NODE_ENV=prod nodemon backend.js"
+    "prod": "cross-env NODE_ENV=prod node backend.js"
   },
   "keywords": [],
   "author": "impuLssse",
