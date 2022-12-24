@@ -1,3 +1,6 @@
 node_modules
 опоздавшие.xlsx
 .env
+back/опоздавшие.xlsx
+back/.env
+back/node_modules
