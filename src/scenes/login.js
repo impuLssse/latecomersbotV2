@@ -1,10 +1,10 @@
 const { Scenes, Markup } = require('telegraf')
 const { Keyboard } = require('telegram-keyboard')
-const session = require('../db/session.js')
 const { errCode } = require('../errors.js')
 const { red, green, magenta } = require('colors')
 const { Time } = require('../times.js')
 const { auth } = require( '../http/http.js' )
+const { session } = require( '../../db.js' )
 
 
 const Login = new Scenes.BaseScene('Login')

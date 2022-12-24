@@ -1,6 +1,6 @@
 const { Telegraf } = require('telegraf')
 const { red, blue } = require('colors')
-const session = require('./db/session.js')
+const { session } = require('../db.js')
 const { stage } = require('./scenes/index.js')
 
 const bot = new Telegraf('5610129913:AAE9oSJL53-1SQKFDo4o12dLzxrQjNvi7AY')

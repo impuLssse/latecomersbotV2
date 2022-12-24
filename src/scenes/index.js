@@ -1,7 +1,7 @@
 const { magenta, red } = require('colors')
 const { Scenes } = require('telegraf')
-const session = require('../db/session.js')
 const { auth } = require('../http/http.js')
+const { session } = require('../../db.js')
 
 const { Root, Roles, Admins, EditAdmin, AddAdmin, SelectRoleForAdmin } = require('./admins/root.js')
 const { Groups, AddGroup, EditGroup, AddStudent, EditStudent, isDeleteGroup, DeleteStudent } = require('./admins/groupsAndStudents.js')
