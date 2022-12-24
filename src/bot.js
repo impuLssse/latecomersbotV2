@@ -1,9 +1,9 @@
 const { Telegraf } = require('telegraf')
-const { red, blue } = require('colors')
+const { blue } = require('colors')
 const { session } = require('../db.js')
 const { stage } = require('./scenes/index.js')
 
-const bot = new Telegraf('5610129913:AAE9oSJL53-1SQKFDo4o12dLzxrQjNvi7AY')
+const bot = new Telegraf(process.env.TOKEN)
 
 bot.use(session.middleware());
 bot.use(stage.middleware());
@@ -19,6 +19,7 @@ bot.command('/reload', async ctx => {
 
 bot.launch()
     .then( console.log(blue(`[BOT] started`)) )
+    .catch( e => console.log(e))
 
 
 module.exports = { bot }
