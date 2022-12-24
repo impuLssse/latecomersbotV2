@@ -1,4 +1,5 @@
-import 'dotenv/config'
+import dotenv from 'dotenv'
+dotenv.config({ path: '../.env' })
 import express, { urlencoded } from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
@@ -29,7 +30,7 @@ let start = async () => {
         await DB.authenticate()
         await DB.sync()
         app.listen(process.env.PORT, () => {
-            console.log(`server start on http://localhost:${process.env.PORT}/`)
+            console.log(`[SERVER] started on http://localhost:${process.env.PORT}/`)
         })
     } catch (e) {
         console.log(e)

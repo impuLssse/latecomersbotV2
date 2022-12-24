@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config({ path: '../.env' })
 import { DataTypes, Sequelize } from 'sequelize'
 import { Roles } from './middlewares/AuthMiddleware'
 
