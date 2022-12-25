@@ -24,7 +24,7 @@ const Login = new Scenes.BaseScene('Login')
             let res = await auth(code)
             if (!res) throw new Error()
 
-            console.log(magenta(`[LOGIN] '${ctx.chat.username}' — '${res.data.id}', sign with role '${res.data.role}' and code '${res.data.code}' in '${(new Time().date(true))}'`))
+            console.log(green(`[LOGIN] '${ctx.chat.username}' — '${res.data.id}', sign with role '${res.data.role}' and code '${res.data.code}' in '${(new Time().date(true))}'`))
             
             ctx.session.state = {
                 id: res.data.id,

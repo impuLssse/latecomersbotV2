@@ -2,12 +2,9 @@ const { blue, magenta, green, red } = require('colors')
 const { Scenes, Markup } = require('telegraf')
 const { Keyboard } = require('telegram-keyboard')
 const { back, roleOut } = require('../helpers.js')
-
-
 const { auth } = require('../../http/http.js')
 const { admins, addAdmin, delAdmin } = require('../../http/admins.js')
 const { Time } = require('../../times.js')
-
 
 const Root = new Scenes.BaseScene('Root')
 const Roles = new Scenes.BaseScene('Roles')
@@ -16,6 +13,7 @@ const Admins = new Scenes.BaseScene('Admins')
 const AddAdmin = new Scenes.BaseScene('AddAdmin')
 const EditAdmin = new Scenes.BaseScene('EditAdmin')
 const SelectRoleForAdmin = new Scenes.BaseScene('SelectRoleForAdmin')
+
 
 Root.enter( async ctx => {
     try {
@@ -111,7 +109,6 @@ Admins.enter( async ctx => {
         ctx.session.state = {}
     }
 })
-// ! сделать .hears для входа в сцену с админом
 .leave( async (ctx, next) => {
     try { 
         await ctx.telegram.deleteMessage(ctx.chat.id, ctx.session.state.last)
@@ -181,8 +178,7 @@ AddAdmin.enter( async ctx => {
         }
         ctx.scene.enter('SelectRoleForAdmin')
     } catch (e) {
-        console.log(1)
-        //ctx.session.state = {}
+        ctx.session.state = {}
     }
 })
 .leave( async (ctx, next) => {
@@ -211,9 +207,7 @@ SelectRoleForAdmin.enter( async ctx => {
         console.log(magenta(`[ADMINS] '${ctx.chat.username}' — '${ctx.session.state.id}', with role ${ctx.session.state.role} and code ${ctx.session.state.code}, create: 'ADMIN' | ${ctx.session.state.inAddAdmin.id} in '${new Time().date(true)}'`))
 
         delete ctx.session.state.inAddAdmin
-    } catch (e) {
-        console.log(e)
-    }
+    } catch (e) {}
 })
 .hears('Дежурный', async ctx => {
     try {
@@ -223,9 +217,7 @@ SelectRoleForAdmin.enter( async ctx => {
         ctx.replyWithHTML(`✅ Дежурный <code>${ctx.session.state.inAddAdmin.name}</code> успешно добавлен`)
 
         delete ctx.session.state.inAddAdmin
-    } catch (e) {
-        console.log(e)
-    }
+    } catch (e) {}
 })
 .hears('Дежурный', ctx => {
     ctx.scene.enter('AddAdmin')
