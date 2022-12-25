@@ -4,8 +4,8 @@
   "description": "",
   "main": "backend.js",
   "scripts": {
-    "dev": "node backend.js",
-    "prod": "node backend.js"
+    "dev": "cross-env NODE_ENV=dev nodemon backend.js",
+    "prod": "cross-env NODE_ENV=prod nodemon backend.js"
   },
   "keywords": [],
   "author": "impuLssse",

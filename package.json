@@ -2,17 +2,19 @@
   "dependencies": {
     "axios": "^1.2.1",
     "colors": "^1.4.0",
-    "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
-    "nodemon": "^2.0.20",
     "telegraf": "^4.11.2",
     "telegraf-session-mysql": "^5.3.0",
     "telegram-keyboard": "^2.3.2",
     "xlsx": "^0.18.5"
   },
   "scripts": {
-      "bot": "node ./src/bot.js",
-      "dev": "cross-env NODE_ENV=dev npm run bot",
-      "prod": "cross-env NODE_ENV=prod npm run bot"
+    "bot": "nodemon ./src/bot.js",
+    "dev": "cross-env NODE_ENV=dev npm run bot",
+    "prod": "cross-env NODE_ENV=prod npm run bot"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.20"
   }
 }
